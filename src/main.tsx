@@ -1,14 +1,14 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from 'react-router-dom';
-import App from "./AppDev";
+import App from "./App";
 import "./index.css";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/theme.css";
 import "./assets/css/style.css";
-
+import "./shooter/styles/styles.scss"
 
 // this manifest is used temporarily for development purposes
 // const manifestUrl =
@@ -16,11 +16,8 @@ import "./assets/css/style.css";
 
 window.addEventListener('DOMContentLoaded', () => {
   if (window.Telegram?.WebApp) {
-      // Initialize Telegram Web Apps SDK
       window.Telegram.WebApp.ready();
-      //Expand Web App window automatically to full height
       window.Telegram.WebApp.expand();
-      // Call disableVerticalSwipes() to prevent vertical swipes
       window.Telegram.WebApp.disableVerticalSwipes();
   }
 });
