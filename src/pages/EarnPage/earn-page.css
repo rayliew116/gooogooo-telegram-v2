@@ -1,0 +1,191 @@
+.earn-container {
+    margin: 0 40px;
+}
+@media (max-width: 399px) {
+    .earn-container {
+        margin: 0 20px;
+    }
+}
+
+/* .earn {
+    width: 100%;
+    max-width: 568px;
+    position: absolute;
+    top: 16%;
+    left: 15%;
+} */
+/* .earn-items-container {
+    width: 100%;
+    max-width: 568px;
+    position: absolute;
+    top: 16%;
+    left: 15%;
+} */
+/* .earn-items-bg {
+    width: 100%;
+    max-width: 568px;
+} */
+
+.earn-items {
+    width: 70%;
+    padding: 7px 5px;
+    position: absolute;
+    top: 12%;
+    left: 15%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    background-image: url('./img/item-main-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+.earn-items button {
+    width: calc(100% / 3);
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Bebas Neue';
+    border-radius: 15px;
+}
+.earn-items button:hover, .earn-items button:active {
+    background-image: url('./img/item-highlight-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.earn-list {
+    width: 100%;
+    height: 65%;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-y: scroll;
+}
+.earn-list ul {
+    padding: 0;
+    margin: 0;
+}
+.earn-list li {
+    height: 80px;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+.earn-list p {
+    margin: 0;
+}
+.earn-bg {
+    width: 70%;
+    position: absolute;
+    left: 15%;
+}
+.earn-content {
+    width: 70%;
+    display: flex;
+    position: absolute;
+    left: 15%;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.item-icon {
+    width: 12%;
+}
+.action-icon {
+    width: 5%;
+}
+.earn-task-content {
+    padding: 0 20px;
+    width: 70%;
+}
+.earn-task-content p {
+    font-family: 'Gilroy';
+    font-size: 16px;
+}
+.earn-des {
+    display: flex;
+    align-items: center;
+}
+.earn-des p {
+    font-family: 'Bebas Neue';
+    font-size: 16px;
+}
+.earn-des img {
+    width: 10%;
+    height: 10%;
+}
+
+
+/* Responsive */
+@media (max-width: 582px) {
+    .earn-items, .earn-bg {
+        width: 65%;
+        left: 18%;
+    }
+    .earn-items button {
+        font-size: 12px;
+    }
+    .earn-list li {
+        height: 67px;
+    }
+    .earn-task-content p,
+    .earn-des p {
+        font-size: 14px;
+    }
+}
+@media (max-width: 478px) {
+    .earn-list {
+        top: 23%;
+        height: 62%;
+    }
+    .earn-list li {
+        height: 52px;
+    }
+    .earn-task-content p,
+    .earn-des p {
+        font-size: 12px;
+    }
+}
+@media (max-width: 376px) {
+    .earn-list li {
+        height: 40px;
+    }
+    .earn-items button {
+        font-size: 10px;
+    }
+    .earn-items button {
+        font-size: 9px;
+    }
+    .earn-content {
+        padding: 0 8px;
+    }
+    .earn-task-content p,
+    .earn-des p {
+        font-size: 10px;
+    }
+}
+@media (max-width: 350px) {
+    .earn-list {
+        top: 24%;
+    }
+    .earn-list li {
+        height: 35px;
+    }
+    .earn-task-content {
+        padding-left: 10px;
+    }
+    .earn-task-content p, .earn-des p {
+        font-size: 8px;
+    }
+}

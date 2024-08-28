@@ -1,0 +1,250 @@
+.friends-container {
+    font-family: 'Gilroy';
+}
+.friends-container-header h5 {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+.friends-container-header img {
+    width: 40%;
+}
+
+.task-container {
+    margin: 0 40px;
+}
+@media (max-width: 399px) {
+    .task-container {
+        margin: 0 20px;
+    }
+}
+
+.tasklist {
+    width: 100%;
+    max-width: 768px;
+}
+.tasklist-bg {
+    width: 100%;
+    position: relative;
+}
+.tasklist-content {
+    width: 83%;
+    padding: 8px 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tasklist-content p {
+    font-size: 18px;
+}
+.present-icon {
+    width: 13%;
+}
+.task-des {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.task-des img {
+    width: 8%;
+    height: 8%;
+}
+.task-des em {
+    font-style: normal;
+    color: #FDC300;
+    font-weight: bold;
+}
+
+/* Leaderboard */
+.leaderboard-items {
+    width: 70%;
+    padding: 0 5px;
+    display:flex;
+    color: white;
+    position: absolute;
+    top: 40.5%;
+    left: 15%;
+}
+.leaderboard-items h5 {
+    font-size: 17px;
+}
+.leaderboard-list {
+    width: 70%;
+    height: 53%;
+    color: white;
+    position: absolute;
+    top: 43.5%;
+    left: 15%;
+    overflow-y: scroll;
+}
+.leaderboard-list ul {
+    padding: 0;
+    margin: 0;
+}
+.leaderboard-list li {
+    display: flex;
+    color: white;
+    align-items: center;
+    font-family: 'Gilroy';
+}
+.leaderboard-list p {
+    margin: 0;
+}
+.leaderboard-item-bg {
+    width: 100%;
+}
+.item-content {
+    width: 90%;
+    left: 5%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-items: center;
+}
+.user-details {
+    display: flex;
+    width: 52%;
+    align-items: center;
+    gap: 5px;
+}
+.profile-icon {
+    width: 18%;
+}
+.ref-earnings {
+    display: flex;
+    align-items: center;
+    width: 22%;
+    gap: 1px;
+    color: #FDC300;
+}
+.ref-earnings img {
+    width: 20%;
+    height: 20%;
+}
+.item-content p,
+.user-details p,
+.ref-earnings p {
+    font-size: 17px;
+}
+
+.invite-friends {
+    width: 100%;
+    max-width: 768px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 13%;
+    z-index: 100;
+}
+
+
+
+/* Responsive */
+@media (max-width: 658px) {
+    .leaderboard-items h5,
+    .item-content p,
+    .user-details p,
+    .ref-earnings p  {
+        font-size: 12px;
+    }
+}
+@media (max-width: 524px) {
+    .friends-container-header h5 {
+        font-size: 18px;
+    }
+    .tasklist-content p {
+        font-size: 15px;
+    }
+}
+@media (max-width: 478px) {
+    .friends-container-header h5 {
+        font-size: 15px;
+    }
+    .friends-container-header img {
+        width: 45%;
+    }
+    .tasklist-content {
+        width:80%;
+    }
+    .tasklist-content p {
+        font-size: 12px;
+    }
+    .leaderboard-items h5,
+    .item-content p,
+    .user-details p,
+    .ref-earnings p  {
+        font-size: 10px;
+    }
+}
+@media (max-width: 399px) {
+    .friends-container-header h5 {
+        font-size: 10px;
+    }
+    .tasklist-content {
+        width: 80%;
+    }
+}
+@media (max-width: 376px) {
+    .leaderboard-items h5 {
+        font-size: 9px;
+    }
+    .profile-icon {
+        width: 15%;
+    }
+    .item-content p,
+    .user-details p,
+    .ref-earnings p {
+        font-size: 10px;
+    }
+}
+@media (max-width: 350px) {
+    .tasklist-content p {
+        font-size: 10px;
+    }
+    .leaderboard-items {
+        top: 45%;
+    }
+    .leaderboard-list {
+        height: 48%;
+        top: 48%;
+    }
+    .leaderboard-items h5 {
+        font-size: 8px;
+    }
+    .profile-icon {
+        width: 13%;
+    }
+    .item-content p,
+    .user-details p,
+    .ref-earnings p {
+        font-size: 9px;
+    }
+    .ref-earnings img {
+        width: 18%;
+        height: 18%;
+    }
+}
+
+/* max-height responsive */
+@media (max-height: 1108px) {
+    .invite-friends {
+        bottom: 16%;
+    }
+}
+@media (max-height: 937px) {
+    .invite-friends {
+        bottom: 18%;
+    }
+}
+@media (max-height: 750px) {
+    .invite-friends {
+        bottom: 22%;
+    }
+}
+@media (max-height: 643px) {
+    .invite-friends {
+        bottom: 25%;
+    }
+}
+

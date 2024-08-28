@@ -1,0 +1,343 @@
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 768px;
+  overflow-x: hidden;
+}
+
+.bomb-overlay {
+  width: 100%;
+  height: 100%;
+  max-width: 768px;
+  content: '';
+  position: fixed;
+  display: block;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,1);
+  animation: fadeInOut 3s ease forwards;
+  pointer-events: none;
+  z-index: 1001;
+}
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.game-bg {
+  min-height: 100vh;
+  background-image: url('../img/bg-2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-bottom: 200px;
+}
+
+/* Header */
+.header-section {
+  padding: 15px 10px;
+  background-color: transparent;
+}
+.header-box {
+  max-width: 768px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.header-logo {
+  width: 100%;
+  /* max-width: 180px; */
+  display: block;
+}
+.header-logo img {
+  width: 100%;
+}
+.header-icons-box {
+  display: flex;
+  align-items: center;
+}
+.header-icons {
+  width: 100%;
+}
+
+.start-game-modal {
+  background: none;
+  border: none;
+}
+
+.exp-bar {
+  width: 80%;
+  margin: auto;
+  padding: 5px 20px;
+}
+.exp-bar-text {
+  display: flex;
+  color: white;
+  font-family: 'Bebas Neue';
+  justify-content: space-between;
+}
+.exp-bar-level {
+  display: flex;
+  align-items: center;
+}
+.exp-icon {
+  position: absolute;
+  width: 20px;
+  left: 15%;
+  z-index: 100;
+}
+.exp-progress {
+  position: absolute;
+  width: 50%;
+}
+.exp-empty {
+  width: 100%;
+
+}
+
+.total-earned {
+  position: relative;
+  padding: 5px;
+  width: 88%;
+  margin: auto;
+  display: block;
+  margin-top: -5px;
+}
+
+.total-earned h2 {
+  position: absolute;
+  top: 48%;
+  left: 53%;
+  transform: translate(-50%, -38%);
+  color: white;
+  font-size: 40px;
+  font-family: 'PEPSI';
+}
+/* Points Bar Responsive */
+@media (max-width: 576px) {
+  .total-earned h2 {
+    top: 45%;
+    font-size: 38px;
+  }
+}
+@media (max-width: 376px) {
+  .total-earned h2 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 321px) {
+  .total-earned h2 {
+    font-size: 23px;
+  }
+}
+
+/* #gameArea {
+  height: 400px;
+} */
+
+/* GoooGooo at corner */
+.corner-gooogooo {
+  width: 100%;
+  max-width: 768px;
+  position: fixed;
+  left: 77%;
+  bottom: 8%;
+}
+.corner-gooogooo img {
+  width: 28%;
+  transform: rotate(-20deg);
+}
+.gj-text {
+  width: 100%;
+  max-width: 768px;
+  position:fixed;
+  bottom: 13%;
+  color: #FDC300;
+  text-align: center;
+  font-size: 32px;
+  font-family: 'Moon Get!';
+}
+@media (max-width: 652px) {
+  .gj-text {
+    font-size: 25px;
+  }
+}
+@media (max-width: 478px) {
+  .gj-text {
+    font-size: 18px;
+  }
+}
+@media (max-width: 399px) {
+  .gj-text {
+    font-size: 10px;
+  }
+}
+
+
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 768px;
+  z-index: 1000;
+}
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-image: linear-gradient(to bottom, transparent, black, black 90%);
+}
+.navbar li {
+  display: inline;
+}
+.navbar a {
+  display: block;
+  padding: 10px 0;
+  color: #FDC300;
+  text-decoration: none;
+  font-family: 'Bebas Neue';
+  letter-spacing: 1px;
+}
+.navbar a, p {
+  font-size: 12px;
+}
+.navbar a:hover, .active-link {
+  background-image: url('../img/nav-onhoverbg.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+.active-link p  {
+  color: white;
+}
+.nav-img {
+  width: 70%;
+}
+/* Navbar Responsive */
+@media (max-width: 685px) {
+  .navbar a, p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 399px) {
+  .navbar a, p {
+    font-size: 8px;
+  }
+}
+
+.gg-swipe {
+  touch-action: none;
+}
+.gg-swipe img {
+  width: 80%;
+}
+
+@keyframes panIn {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4) translate(-50%, -50%);
+  }
+}
+
+@keyframes panOut {
+  0% {
+    transform: scale(1.4) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+.pan-animation {
+  animation: panIn 0.8s ease-out, panOut 0.8s 0.8s ease-in forwards;
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(0.6) translate(-50%, -50%);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2) translate(-50%, -50%);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.pop-animation {
+  animation: popOut 0.4s ease-in forwards;
+}
+
+@keyframes popOutPanLeft {
+  0% {
+    transform: translateX(-100%) scale(0.6);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(0) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-5%) scale(1);
+    opacity: 1;
+  }
+}
+
+.pop-animation-pan-left {
+  animation: popOutPanLeft 0.8s ease-in forwards;
+}
+
+@keyframes fadeAndMoveUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+}
+
+.plus-one-animation {
+  animation: fadeAndMoveUp 2s ease-out forwards;
+}
