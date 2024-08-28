@@ -95,10 +95,10 @@ export default class Ball extends Phaser.Physics.Arcade.Sprite implements IBall
 	{
 		this.setCollideWorldBounds(true, 1, 1)
 
-		this.body.x = this.x
-		this.body.y = this.y
+		this.body!.x = this.x //
+		this.body!.y = this.y //
 
-		this.body.enable = true
+		this.body!.enable = true //
 
 		this.setVelocity(direction.x * speed, direction.y * speed)
 	}

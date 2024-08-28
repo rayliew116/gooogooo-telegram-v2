@@ -6,7 +6,7 @@ declare global
 	interface IStaticBallPool extends Phaser.Physics.Arcade.StaticGroup
 	{
 		spawn(x: number, y: number): IBall
-		despawn(ball: IBall)
+		despawn(ball: IBall): void;
 	}
 }
 
@@ -50,7 +50,10 @@ export default class StaticBallPool extends Phaser.Physics.Arcade.StaticGroup im
 		{
 			ball.setVisible(true)
 			ball.setActive(true)
-			this.world.add(ball.body)
+			// this.world.add(ball.body)
+			if (ball.body) {  
+				this.world.add(ball.body);
+			  }
 
 			ball.setRandomColor()
 		}
@@ -65,10 +68,15 @@ export default class StaticBallPool extends Phaser.Physics.Arcade.StaticGroup im
 	{
 		this.killAndHide(ball)
 
-		this.world.remove(ball.body)
+		// this.world.remove(ball.body)
+		
+		// ball.body.reset(0, 0)
 
-		ball.alpha = 1
-		ball.body.reset(0, 0)
+		if (ball.body) {  
+			this.world.remove(ball.body);
+			ball.alpha = 1
+			ball.body.reset(0, 0);
+		}
 	}
 }
 

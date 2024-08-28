@@ -18,12 +18,12 @@ declare global
 
 		onShoot(): Observable<IBall>
 
-		setBallPool(pool: IBallPool)
-		setGuide(guide: IShotGuide)
+		setBallPool(pool: IBallPool): void;
+		setGuide(guide: IShotGuide): void;
 
-		attachBall(ball?: IBall)
-		returnBall(ball: IBall)
-		update(dt: number)
+		attachBall(ball?: IBall): void;
+		returnBall(ball: IBall): void;
+		update(dt: number): void;
 	}
 }
 

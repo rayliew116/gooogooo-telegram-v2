@@ -225,13 +225,16 @@ export default class BallGrid
 		const orphans = this.removeFromGrid(orphanPositions)
 			.map(ball => {
 				ball.setActive(false)
-				this.scene.physics.world.remove(ball.body)
+				// this.scene.physics.world.remove(ball.body)
+				if (ball.body) { // Type guard to check if body is not null
+					this.scene.physics.world.remove(ball.body);
+				  }
 				return ball
 			})
 
 		this.cleanUpEmptyRows()
 
-		await new Promise(resolve => {
+		await new Promise<void>(resolve => {
 			this.scene.tweens.add({
 				targets: newBall,
 				y: ty,
@@ -423,7 +426,8 @@ export default class BallGrid
 	private async animateOrphans(orphans: IBall[])
 	{
 		// move down and fade out
-		const timeline = this.scene.tweens.timeline()
+		// const timeline = this.scene.tweens.timeline()
+		const timeline = (this.scene.tweens as any).timeline();
 		const bottom = this.scene.scale.height * 0.9
 
 		const tasks = orphans.map(orphan => {
@@ -431,7 +435,7 @@ export default class BallGrid
 			const dy = bottom - y
 			const duration = dy * 0.75
 
-			return new Promise(resolve => {
+			return new Promise<void>(resolve => {
 				timeline.add({
 					targets: orphan,
 					y: y + dy,
@@ -460,7 +464,8 @@ export default class BallGrid
 	private animateAttachBounceAt(row: number, col: number, tx: number, ty: number, newBall: IBall)
 	{
 		// https://github.com/photonstorm/phaser/blob/v3.22.0/src/math/easing/EaseMap.js
-		const timeline = this.scene.tweens.createTimeline()
+		// const timeline = this.scene.tweens.createTimeline()
+		const timeline = (this.scene.tweens as any).createTimeline();
 		timeline.add({
 			targets: newBall,
 			y: ty - 5,
@@ -761,7 +766,8 @@ export default class BallGrid
 				const movement = 10 * factor
 				
 
-				const timeline = this.scene.tweens.createTimeline()
+				// const timeline = this.scene.tweens.createTimeline()
+				const timeline = (this.scene.tweens as any).createTimeline();
 				const y = ball.y
 				
 				timeline.add({

@@ -74,7 +74,7 @@ export default class DescentController
 	{
 		if (this.state !== DescentState.Reversing)
 		{
-			return new Promise(resolve => {
+			return new Promise<void>(resolve => {
 				resolve()
 			})
 		}
@@ -131,7 +131,7 @@ export default class DescentController
 				const diff = v - grid.bottom
 				grid.moveBy(diff)
 			},
-			onUpdateScope: this,
+			// onUpdateScope: this,
 			onComplete: function () {
 				// if state is no longer Reversing then don't change
 				// @ts-ignore
@@ -144,7 +144,7 @@ export default class DescentController
 				// @ts-ignore
 				this.reversingSubject.next()
 			},
-			onCompleteScope: this
+			// onCompleteScope: this
 		})
 	}
 

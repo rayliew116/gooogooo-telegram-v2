@@ -6,7 +6,7 @@ declare global
 	interface IBallPool extends Phaser.Physics.Arcade.Group
 	{
 		spawn(x: number, y: number): IBall
-		despawn(ball: IBall)
+		despawn(ball: IBall): void;
 	}
 }
 
@@ -50,7 +50,10 @@ export default class BallPool extends Phaser.Physics.Arcade.Group implements IBa
 		{
 			ball.setVisible(true)
 			ball.setActive(true)
-			this.world.add(ball.body)
+			// this.world.add(ball.body)
+			if (ball.body) {  // Ensure ball.body is not null before adding
+				this.world.add(ball.body);
+			}
 		}
 
 		ball.setRandomColor()
@@ -62,9 +65,12 @@ export default class BallPool extends Phaser.Physics.Arcade.Group implements IBa
 	{
 		this.killAndHide(ball)
 
-		this.world.remove(ball.body)
-
-		ball.body.reset(0, 0)
+		// this.world.remove(ball.body)
+		// ball.body.reset(0, 0)
+		if (ball.body) {  // Ensure ball.body is not null
+			this.world.remove(ball.body);
+			ball.body.reset(0, 0);
+		}
 	}
 }
 

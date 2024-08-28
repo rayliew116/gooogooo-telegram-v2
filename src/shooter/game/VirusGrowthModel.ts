@@ -8,7 +8,7 @@ declare global
 
 		getNext(count: number): number
 		onPopulationChanged(): Observable<number>
-		update(dt: number)
+		update(dt: number): void;
 	}
 }
 
