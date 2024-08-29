@@ -66,7 +66,24 @@ export default class Game extends Phaser.Scene
 		this.grid.setLayoutData(new BallLayoutData(this.growthModel))
 			.generate()
 
-		this.physics.add.collider(ballPool, staticBallPool, this.handleBallHitGrid, this.processBallHitGrid, this)
+		this.physics.add.collider(
+			ballPool, 
+			staticBallPool, 
+			// this.handleBallHitGrid,
+			(ball, gridBall) => {
+				if (ball instanceof Phaser.GameObjects.GameObject && gridBall instanceof Phaser.GameObjects.GameObject) {
+				  this.handleBallHitGrid(ball, gridBall).catch(console.error);
+				}
+			  },
+			// this.processBallHitGrid, 
+			(ball, gridBall) => {
+				if (ball instanceof Phaser.GameObjects.GameObject && gridBall instanceof Phaser.GameObjects.GameObject) {
+				  return this.processBallHitGrid(ball, gridBall);
+				}
+				return false; // Return false if the types don't match
+			  },
+			this
+		)
 
 		this.descentController = new DescentController(this, this.grid, this.growthModel)
 		this.descentController.setStartingDescent(300)
@@ -120,7 +137,8 @@ export default class Game extends Phaser.Scene
 	{
 		const x = ball.x
 		const y = ball.y
-
+		
+		
 		// explosion then go to gameover
 		const particles = this.add.particles(TextureKeys.VirusParticles)
 		particles.setDepth(2000)
@@ -133,6 +151,7 @@ export default class Game extends Phaser.Scene
 			lifespan: 300
 		})
 		.explode(50, x, y)
+		
 	}
 
 	private handleShutdown()
@@ -171,7 +190,6 @@ export default class Game extends Phaser.Scene
 		const bx = b.x
 		const by = b.y
 		const color = b.color
-
 		const vx = b.body.deltaX()
 		const vy = b.body.deltaY()
 
@@ -202,7 +220,7 @@ export default class Game extends Phaser.Scene
 		this.descentController?.descend()
 	}
 
-	update(t, dt)
+	update(t: any, dt: number)
 	{
 		if (this.state === GameState.GameOver || this.state === GameState.GameWin)
 		{

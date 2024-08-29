@@ -33,11 +33,6 @@ import SceneKeys from './shooter/consts/SceneKeys'
 import registerScenes from './registerScenes'
 import config from './config'
 
-// const game = new Phaser.Game(config)
-
-// registerScenes(game)
-
-// game.scene.start(SceneKeys.Bootstrap)
 
 const App: React.FC = () => {
 

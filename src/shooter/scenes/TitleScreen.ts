@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import ReactDOM from 'react-dom/client';
+
 
 import playButton from '../ui/PlayButton'
 import { DarkColor } from '../consts/Colors'
@@ -32,13 +34,15 @@ export default class HelloWorldScene extends Phaser.Scene
 			.setScale(DPR)
 			.setTint(0x000000FF)
 
+		const hexColor = `#${DarkColor.toString(16).padStart(6, '0')}`;
+
 		const fontSize = Math.min(width * 0.095, 225)
         const title1 = this.add.text(x, y, 'Coronavirus', {
 			fontFamily: 'Nosifer',
 			fontSize,
 			color: '#eb4034',
 			align: 'center',
-			stroke: DarkColor,
+			stroke: hexColor,
 			strokeThickness: 8
 		})
 		.setOrigin(0.5, 0.5)
@@ -47,12 +51,19 @@ export default class HelloWorldScene extends Phaser.Scene
 			fontFamily: 'Lemon',
 			fontSize: fontSize * 1.5,
 			color: '#FEC81A',
-			stroke: DarkColor,
+			stroke: hexColor,
 			strokeThickness: 4
 		})
 		.setOrigin(0.5, 0.5)
 
-		this.add.dom(x, height * 0.7, playButton('Play'))
+		// const container = document.createElement('div');
+		// ReactDOM.render(playButton('Play'), container);
+		// this.add.dom(x, height * 0.7, playButton('Play'))
+		const container = document.createElement('div');
+		const root = ReactDOM.createRoot(container);
+
+		root.render(playButton('Play'));
+		this.add.dom(x, height * 0.7, container.firstChild as HTMLElement)
 			.addListener('click').on('click', () => {
 				this.uiClickSubject.next()
 
