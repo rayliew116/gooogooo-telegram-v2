@@ -9,7 +9,7 @@ export default class Preload extends Phaser.Scene
 	preload()
 	{
 		this.load.image(TextureKeys.Background, 'background.png')
-		this.load.image(TextureKeys.Virus, 'coronavirus.png')
+		// this.load.image(TextureKeys.Virus, 'coronavirus.png')
 		this.load.image(TextureKeys.VirusRed, 'virus_red.png')
 		this.load.image(TextureKeys.VirusGreen, 'virus_green.png')
 		this.load.image(TextureKeys.VirusBlue, 'virus_blue.png')

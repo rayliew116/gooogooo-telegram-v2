@@ -242,7 +242,7 @@ export default class BallGrid
 				duration: 50,
 				ease: 'Back.easeOut',
 				onComplete: function () {
-					resolve()
+					resolve() 
 				}
 			})
 		})
@@ -465,34 +465,72 @@ export default class BallGrid
 	{
 		// https://github.com/photonstorm/phaser/blob/v3.22.0/src/math/easing/EaseMap.js
 		// const timeline = this.scene.tweens.createTimeline()
-		const timeline = (this.scene.tweens as any).createTimeline();
-		timeline.add({
+		// const timeline = (this.scene.tweens as any).createTimeline();
+		const scene = this.scene;
+
+		// timeline.add({
+		// const firstTween = scene.tweens.add({
+		// 	targets: newBall,
+		// 	y: ty - 5,
+		// 	duration: 50
+		// })
+
+		// // timeline.add({
+		// const secondTween = scene.tweens.add({
+		// 	targets: newBall,
+		// 	x: tx,
+		// 	duration: 100,
+		// 	// offset: 0
+		// 	paused: true,
+		// })
+
+		// // timeline.add({
+		// const thirdTween = scene.tweens.add({
+		// 	targets: newBall,
+		// 	y: ty,
+		// 	duration: 50,
+		// 	ease: 'Back.easeOut',
+		// 	paused: true,
+		// 	onComplete: () => {
+		// 		const body = newBall.body as Phaser.Physics.Arcade.StaticBody
+		// 		body.updateFromGameObject()
+		// 	}
+		// })
+
+		// // timeline.play()
+		// firstTween.chain(secondTween);
+		// secondTween.chain(thirdTween);
+
+		// firstTween.play();
+		scene.tweens.add({
 			targets: newBall,
 			y: ty - 5,
-			duration: 50
-		})
-
-		timeline.add({
-			targets: newBall,
-			x: tx,
-			duration: 100,
-			offset: 0
-		})
-
-		timeline.add({
-			targets: newBall,
-			y: ty,
 			duration: 50,
-			ease: 'Back.easeOut',
 			onComplete: () => {
-				const body = newBall.body as Phaser.Physics.Arcade.StaticBody
-				body.updateFromGameObject()
+				// Second tween: move the ball horizontally after the first tween
+				scene.tweens.add({
+					targets: newBall,
+					x: tx,
+					duration: 100,
+					onComplete: () => {
+						// Third tween: move the ball back down with easing
+						scene.tweens.add({
+							targets: newBall,
+							y: ty,
+							duration: 50,
+							ease: 'Back.easeOut',
+							onComplete: () => {
+								const body = newBall.body as Phaser.Physics.Arcade.StaticBody;
+								body.updateFromGameObject();
+							}
+						});
+					}
+				});
 			}
-		})
-
-		timeline.play()
+		});
 
 		this.jiggleNeighbors(row, col)
+		
 	}
 
 	private findRowAndColumns(ball: IBall)

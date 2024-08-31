@@ -2,6 +2,15 @@ import Phaser from 'phaser'
 
 const WebFont = window.WebFont
 
+interface WebFontConfig {
+	active: () => void;
+	google?: {
+	  families: string[];
+	};
+	[key: string]: any;  // Allows additional properties
+  }
+  
+
 export default class WebFontFile extends Phaser.Loader.File
 {
 	private fontNames: string[]
@@ -20,11 +29,16 @@ export default class WebFontFile extends Phaser.Loader.File
 
 	load()
 	{
-		const config = {
+		// const config = {
+		// 	active: () => {
+		// 		this.loader.nextFile(this, true)
+		// 	}
+		// }
+		const config: WebFontConfig = {
 			active: () => {
-				this.loader.nextFile(this, true)
-			}
-		}
+			  this.loader.nextFile(this, true);
+			},
+		  };
 
 		switch (this.service)
 		{

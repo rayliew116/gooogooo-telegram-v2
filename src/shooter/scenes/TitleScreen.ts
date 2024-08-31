@@ -56,15 +56,17 @@ export default class HelloWorldScene extends Phaser.Scene
 		})
 		.setOrigin(0.5, 0.5)
 
-		// const container = document.createElement('div');
-		// ReactDOM.render(playButton('Play'), container);
+		// const container = document.createElement('div')
+		// const root = ReactDOM.createRoot(container)
+		// root.render(playButton('Play'))
+		// const playButtonElement = container.firstChild as HTMLElement;
 
-		const container = document.createElement('div');
-		const root = ReactDOM.createRoot(container);
-		root.render(playButton('Play'));
-
+		const button = document.createElement('button');
+		button.innerText = 'Play';
+		button.className = 'button is-primary is-large';
+		this.add.dom(x, height * 0.7, button)
 		// this.add.dom(x, height * 0.7, playButton('Play'))
-		this.add.dom(x, height * 0.7, container.firstChild as HTMLElement)
+		// this.add.dom(x, height * 0.7, playButtonElement)
 			.addListener('click').on('click', () => {
 				this.uiClickSubject.next()
 
