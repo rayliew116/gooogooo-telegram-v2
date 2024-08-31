@@ -97,13 +97,13 @@ const App: React.FC = () => {
               <div className="col-3 header-icons-box">
                 <button disabled className="btn p-0"><img className="header-icons" src={LanguageIcon}/></button>
                 <button className="btn p-0" onClick={(e) => {
-                  if (bgm.current && !bgmIsPlaying) {
-                    bgm.current.pause();
-                    setBgmIsPlaying(false);
-                  } else if (bgm.current && bgmIsPlaying) {
-                    bgm.current.play();
-                    setBgmIsPlaying(true);
-                  }
+                  // if (bgm.current && !bgmIsPlaying) {
+                  //   bgm.current.play();
+                  //   setBgmIsPlaying(true);
+                  // } else if (bgm.current && bgmIsPlaying) {
+                  //   bgm.current.pause();
+                  //   setBgmIsPlaying(false);
+                  // }
                 }}>
                   <img className="header-icons" src={MusicIcon}/>
 
@@ -119,14 +119,14 @@ const App: React.FC = () => {
                         <div className="modal-body text-center">
                         <button className="btn p-0" data-dismiss="modal" onClick={(e) => {
                           setStartGame(true);
-                          if (bgm.current && !bgmIsPlaying) {
-                            bgm.current.play();
-                            setBgmIsPlaying(true);
-                          } 
-                          else if (bgm.current && bgmIsPlaying) {
-                            bgm.current.pause();
-                            setBgmIsPlaying(false);
-                          }
+                          // if (bgm.current && !bgmIsPlaying) {
+                          //   bgm.current.play();
+                          //   setBgmIsPlaying(true);
+                          // } 
+                          // else if (bgm.current && bgmIsPlaying) {
+                          //   bgm.current.pause();
+                          //   setBgmIsPlaying(false);
+                          // }
                         }}>
                           <img className="w-100" src={StartGame}></img>
                         </button>
@@ -134,8 +134,8 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                  <div id="phaser-container" ref={gameContainerRef} style={{ width: '100%', height: '100%' }} />
                   
-                  <div id="phaser-container" ref={gameContainerRef} style={{ width: '100%', height: '100%' }} />;
             
                 </>
               }/>

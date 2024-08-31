@@ -140,17 +140,17 @@ export default class Game extends Phaser.Scene
 		
 		
 		// explosion then go to gameover
-		const particles = this.add.particles(TextureKeys.VirusParticles)
-		particles.setDepth(2000)
-		particles.createEmitter({
-			speed: { min: -200, max: 200 },
-			angle: { min: 0, max: 360 },
-			scale: { start: 0.3, end: 0 },
-			blendMode: Phaser.BlendModes.ADD,
-			tint: ball.color,
-			lifespan: 300
-		})
-		.explode(50, x, y)
+		// const particles = this.add.particles(TextureKeys.VirusParticles);
+		// particles.setDepth(2000)
+		// particles.createEmitter({
+		// 	speed: { min: -200, max: 200 },
+		// 	angle: { min: 0, max: 360 },
+		// 	scale: { start: 0.3, end: 0 },
+		// 	blendMode: Phaser.BlendModes.ADD,
+		// 	tint: ball.color,
+		// 	lifespan: 300
+		// })
+		// .explode(50, x, y)
 		
 	}
 
@@ -190,8 +190,9 @@ export default class Game extends Phaser.Scene
 		const bx = b.x
 		const by = b.y
 		const color = b.color
-		const vx = b.body.deltaX()
-		const vy = b.body.deltaY()
+		
+		const vx = b.body!.deltaX()
+		const vy = b.body!.deltaY()
 
 		const gb = gridBall as IBall
 		const gx = gb.x
